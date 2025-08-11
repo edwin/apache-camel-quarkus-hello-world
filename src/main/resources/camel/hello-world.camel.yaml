@@ -1,0 +1,19 @@
+- route:
+    id: route-3964
+    from:
+      id: from-root
+      uri: rest:get:/
+      steps:
+        - removeHeaders:
+            id: remove-all
+            pattern: "*"
+        - setHeader:
+            id: set-content-type
+            name: Content-Type
+            constant: application/json
+        - setBody:
+            id: set-response-body
+            constant: '{"hello":"world"}'
+        - log:
+            id: log-response
+            message: "Responding with: ${body}"
